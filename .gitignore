@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+.onboarded
+*.pptx
+*.pdf
+*.png
+build/
+!examples/synthetic-demo.pptx
+!assets/demo-preview.png

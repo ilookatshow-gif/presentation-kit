@@ -1,0 +1,83 @@
+{
+  "id": "presentation-kit",
+  "version": "0.1.0",
+  "author": "Дмитрий Лукашов",
+  "scope": "Standalone offline Python CLI that validates an explicit JSON slide structure and writes a PPTX with native editable text and tables using four fixed original layouts. Includes a bounded structural reader for its own generated format. No model, API, rendering engine, arbitrary template editing, image sourcing, animations, macros, network or private-core installation.",
+  "rights_status": "original_code_reviewed",
+  "license": "MIT",
+  "origin": "New original PPTX writer, documentation, slide theme and invented teaching fixture prepared for this open-module task in November 2026 with AI assistance. Install/uninstall helpers adapt the same author's previously published MIT company-knowledge-kit v0.1.1 helpers; authorship and license retained. No private Lookatshow core, client presentation, third-party template, media, skill collection or font file copied. Python standard library only. User-supplied content retains its own rights.",
+  "dependencies": "Python 3.9+ standard library only",
+  "synthetic_example": true,
+  "synthetic_example_slides": 5,
+  "telemetry": false,
+  "network_access": false,
+  "provider_authentication": false,
+  "provider_writes": false,
+  "generated_claims": false,
+  "output_format": "PPTX / OOXML with native editable text objects and table cells",
+  "layouts": [
+    "cover",
+    "bullets",
+    "two_columns",
+    "table"
+  ],
+  "input_limits": {
+    "bytes": 524288,
+    "slides": 30,
+    "text_fit": "Conservative estimate; character caps do not guarantee a fit. No truncation or automatic font shrinking. Actual render must be inspected in the intended editor."
+  },
+  "inspection_scope": "Bounded structural inspection of presentation-kit/1 output only; not a general validator, renderer or security certification for arbitrary third-party decks.",
+  "installer_support": "POSIX-only explicit-prefix native launcher; Windows runs the source CLI through Python. Actual native-host checks are separate from CI configuration.",
+  "channel": "https://t.me/lookatsoul",
+  "catalog": "https://github.com/ilookatshow-gif/lookatshow-open-tools",
+  "site": "https://lookatshow.ru/ai-implementation/?utm_source=github&utm_medium=open_module&utm_campaign=presentation-kit&utm_content=module",
+  "search_intent": {
+    "ru": "редактируемая презентация из JSON; локальный генератор PPTX для ИИ-агента; сборка слайдов с редактируемыми таблицами",
+    "en": "offline JSON to editable PPTX; deterministic presentation generation for AI agents; native editable text and tables"
+  },
+  "suggested_description": "Offline JSON-to-PPTX for AI agents: four fixed layouts, native editable text and tables, strict input and conservative fit checks. Python standard library; no model or API key.",
+  "suggested_topics": [
+    "ai-agents",
+    "pptx",
+    "presentations",
+    "ooxml",
+    "json",
+    "python",
+    "offline-first",
+    "document-automation",
+    "editable-slides",
+    "lookatshow"
+  ],
+  "publish_files": [
+    "presentation_kit.py",
+    "install.py",
+    "uninstall.py",
+    "README.md",
+    "README.ru.md",
+    "LICENSE",
+    "NOTICE.md",
+    "MODULE.json",
+    "AGENTS.md",
+    ".gitignore",
+    ".github/workflows/ci.yml",
+    "skills/presentation-kit/SKILL.md",
+    "tests/test_presentation_kit.py",
+    "examples/synthetic-deck.json",
+    "examples/synthetic-demo.pptx",
+    "assets/demo-preview.png"
+  ],
+  "verified_example": {
+    "checked_date": "2026-11-09",
+    "input": "examples/synthetic-deck.json",
+    "input_sha256": "1483d5e7b1932ac52c062216262a088b21a08af04010595e8ce3b5c61aa99968",
+    "pptx": "examples/synthetic-demo.pptx",
+    "pptx_sha256": "6d4ea083162233ad74e2537c5872da19c1303897fee60dc55f6abe2b27adfa29",
+    "preview": "assets/demo-preview.png",
+    "preview_sha256": "83cea645e6da449d0faa3806f44efc4085488f47c6b6d7a31c5c360a7cc0dc7b",
+    "slides": 5,
+    "native_table_cells": 12,
+    "renderer": "LibreOffice headless; PDF rasterized with Poppler",
+    "visual_review": "All five rendered slides inspected at full size; no clipping or unintended overlap found.",
+    "microsoft_powerpoint_tested": false
+  }
+}

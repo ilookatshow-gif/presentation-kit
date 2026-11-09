@@ -1,0 +1,49 @@
+name: Offline presentation checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: '1'
+
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-22.04
+            python: '3.9'
+          - os: ubuntu-latest
+            python: '3.12'
+          - os: windows-latest
+            python: '3.12'
+          - os: macos-latest
+            python: '3.12'
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Unit tests
+        run: python -B -m unittest discover -s tests -v
+      - name: Offline doctor
+        run: python -B presentation_kit.py --json doctor
+      - name: Build and inspect invented editable presentation
+        shell: python
+        run: |
+          import pathlib
+          import subprocess
+          import sys
+          import tempfile
+          with tempfile.TemporaryDirectory(prefix="presentation-kit-ci-") as temporary:
+              output = pathlib.Path(temporary).resolve() / "synthetic-demo.pptx"
+              subprocess.run([sys.executable, "-B", "presentation_kit.py", "--json", "demo", "--output", str(output)], check=True)
+              subprocess.run([sys.executable, "-B", "presentation_kit.py", "--json", "inspect", str(output)], check=True)
